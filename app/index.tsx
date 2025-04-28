@@ -1,11 +1,8 @@
 import { Link } from "expo-router";
-import { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
-  const [secureText, setSecureText] = useState(true);
-
   return (
     <SafeAreaView className=" flex-1 justify-center items-center bg-[#36b4b2]">
       <Text className=" text-white text-2xl py-5">
