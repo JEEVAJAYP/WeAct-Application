@@ -1,7 +1,16 @@
 import { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import Button from "@/components/Button";
+import { Link } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function login() {
   const [secureText, setSecureText] = useState(true);
@@ -49,12 +58,11 @@ export default function login() {
             </View>
           </View>
         </View>
-        <TouchableOpacity
-          className=" bg-primary py-5"
-          onPress={() => console.log("Login")}
-        >
-          <Text className="text-xl text-white text-center">Login</Text>
-        </TouchableOpacity>
+        <Button
+          title="Login"
+          onPress={() => console.log("Login pressed")}
+          className="bg-primary" // Optional: Customize the className if needed
+        />
       </View>
       <View className="py-4">
         <TouchableOpacity onPress={() => console.log("Forget Password")}>
@@ -63,9 +71,9 @@ export default function login() {
       </View>
       <View className="items-center justify-center flex-row gap-2 py-4">
         <Text>Dont't have an account?</Text>
-        <TouchableOpacity onPress={() => console.log("Sign Up")}>
+        <Link href="/signup">
           <Text className=" text-lightblue">Sign Up</Text>
-        </TouchableOpacity>
+        </Link>
       </View>
     </View>
   );
