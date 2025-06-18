@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Button from "@/components/Button";
@@ -14,12 +7,13 @@ import { Link } from "expo-router";
 
 const signup = () => {
   const [secureText, setSecureText] = useState(true);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const passwordRules = "minlength: 16; required: lower, upper, digit, symbol;";
 
   return (
     <View className="flex-1 bg-white items-center justify-center">
-      <View className="">
-        <Text className=" text-3xl ">Register</Text>
-      </View>
+      <Text className=" text-3xl ">Register</Text>
       <View className=" flex w-full">
         <View className=" px-4 py-6">
           <View className=" flex-col gap-3">
@@ -27,10 +21,10 @@ const signup = () => {
             <View className=" flex-row bg-lightgrey rounded-xl px-4 justify-between items-center">
               <TextInput
                 placeholder="Please enter Username Or Mail-id"
-                // value={email}
-                // onChangeText={setEmail}
-                // keyboardType="email-address"
-                // autoCapitalize="none"
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+                autoCapitalize="none"
               />
               <MaterialCommunityIcons
                 name="account-outline"
@@ -38,11 +32,12 @@ const signup = () => {
                 color={"#949191"}
               />
             </View>
-            <Text className=" text-2xl ">Password</Text>
-            <View className=" flex-row bg-lightgrey rounded-xl px-4 justify-between items-center">
+            <Text className="text-2xl ">Password</Text>
+            <View className="flex-row bg-lightgrey rounded-xl px-4 justify-between items-center">
               <TextInput
                 placeholder="Please enter the password"
-                secureTextEntry
+                secureTextEntry={true}
+                passwordRules={passwordRules}
               />
               <TouchableOpacity onPress={() => setSecureText(!secureText)}>
                 {secureText ? (
@@ -56,11 +51,12 @@ const signup = () => {
                 )}
               </TouchableOpacity>
             </View>
-            <Text className=" text-2xl ">New Password</Text>
-            <View className=" flex-row bg-lightgrey rounded-xl px-4 justify-between items-center">
+            <Text className="text-2xl ">New Password</Text>
+            <View className="flex-row bg-lightgrey rounded-xl px-4 justify-between items-center">
               <TextInput
                 placeholder="Please enter the password"
-                secureTextEntry
+                secureTextEntry={true}
+                passwordRules={passwordRules}
               />
               <TouchableOpacity onPress={() => setSecureText(!secureText)}>
                 {secureText ? (
@@ -78,9 +74,8 @@ const signup = () => {
             <View className=" flex-row bg-lightgrey rounded-xl px-4 justify-between items-center">
               <TextInput
                 placeholder="Please enter Full Name"
-                // value={email}
-                // onChangeText={setEmail}
-                // keyboardType="email-address"
+                value={name}
+                onChangeText={setName}
               />
               <MaterialCommunityIcons
                 name="account-outline"
@@ -90,12 +85,7 @@ const signup = () => {
             </View>
             <Text className=" text-2xl ">Phone no</Text>
             <View className=" flex-row bg-lightgrey rounded-xl px-4 justify-between items-center">
-              <TextInput
-                placeholder="Please enter your phone no"
-                // value={email}
-                // onChangeText={setEmail}
-                // keyboardType="email-address"
-              />
+              <TextInput placeholder="Please enter your phone no" />
               <MaterialCommunityIcons
                 name="phone"
                 size={24}
@@ -109,6 +99,7 @@ const signup = () => {
           onPress={() => console.log("Sign Up pressed")}
         />
       </View>
+      {/* <View className="w-full h-[1px] bg-gray-300 my-4"></View> */}
       <View className="items-center justify-center flex-row gap-2 py-4">
         <Text>Already have an account?</Text>
         <Link href="/login">

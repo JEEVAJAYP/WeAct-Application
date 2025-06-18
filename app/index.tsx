@@ -1,10 +1,13 @@
+import Button from "@/components/Button";
 import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import { Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import BackTo from "@/components/BackTo";
+import Svg, { Path, LinearGradient, Stop, Defs } from "react-native-svg";
 
 export default function Index() {
   return (
-    <SafeAreaView className=" flex-1 justify-center items-center bg-[#36b4b2]">
+    <View className=" flex-1 items-center w-full bg-primary justify-center">
       <Text className=" text-white text-2xl py-5">
         Welcome to WeAct Application
       </Text>
@@ -12,7 +15,6 @@ export default function Index() {
         Wr're glad to have onborder with us.We hope you enjoy the learning
         process and explore your passion further
       </Text>
-
       <View className=" w-full px-5">
         <Link
           href="/(auth)/signup"
@@ -21,6 +23,6 @@ export default function Index() {
           Get Started
         </Link>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }

@@ -9,9 +9,7 @@ interface ButtonProps extends TouchableOpacityProps {
 const Button = ({ title, className, ...props }: ButtonProps) => {
   return (
     <TouchableOpacity className=" bg-primary py-5" {...props}>
-      <Text className=" bg-primary text-white text-center text-xl">
-        {title}
-      </Text>
+      <Text className=" text-white text-center text-xl">{title}</Text>
     </TouchableOpacity>
   );
 };

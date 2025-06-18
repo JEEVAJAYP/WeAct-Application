@@ -10,7 +10,6 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Button from "@/components/Button";
 import { Link } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function login() {
   const [secureText, setSecureText] = useState(true);
@@ -58,14 +57,18 @@ export default function login() {
             </View>
           </View>
         </View>
-        <Button
+
+        <Link href="/pinfo" className=" bg-primary py-5">
+          <Text className=" text-white text-center text-xl">Login</Text>
+        </Link>
+        {/* <Button
           title="Login"
           onPress={() => console.log("Login pressed")}
           className="bg-primary" // Optional: Customize the className if needed
-        />
+        /> */}
       </View>
       <View className="py-4">
-        <TouchableOpacity onPress={() => console.log("Forget Password")}>
+        <TouchableOpacity>
           <Text className=" text-lightblue">Forget Password?</Text>
         </TouchableOpacity>
       </View>
